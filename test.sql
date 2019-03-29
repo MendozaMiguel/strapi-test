@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.5.4.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 28 Mars 2019 à 15:05
--- Version du serveur :  5.6.20-log
--- Version de PHP :  5.4.31
+-- Généré le :  Ven 29 Mars 2019 à 15:28
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `test`
@@ -26,14 +26,14 @@ SET time_zone = "+00:00";
 -- Structure de la table `core_store`
 --
 
-CREATE TABLE IF NOT EXISTS `core_store` (
-`id` int(11) NOT NULL,
+CREATE TABLE `core_store` (
+  `id` int(11) NOT NULL,
   `key` varchar(255) DEFAULT NULL,
   `value` longtext,
   `type` varchar(255) DEFAULT NULL,
   `environment` varchar(255) DEFAULT NULL,
   `tag` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `core_store`
@@ -46,35 +46,83 @@ INSERT INTO `core_store` (`id`, `key`, `value`, `type`, `environment`, `tag`) VA
 (4, 'db_model_upload_file', '{"name":{"type":"string","configurable":false,"required":true},"hash":{"type":"string","configurable":false,"required":true},"sha256":{"type":"string","configurable":false},"ext":{"type":"string","configurable":false},"mime":{"type":"string","configurable":false,"required":true},"size":{"type":"string","configurable":false,"required":true},"url":{"type":"string","configurable":false,"required":true},"provider":{"type":"string","configurable":false,"required":true},"public_id":{"type":"string","configurable":false},"related":{"collection":"*","filter":"field","configurable":false},"created_at":{"type":"timestamp"},"updated_at":{"type":"timestampUpdate"}}', 'object', NULL, NULL),
 (5, 'db_model_users-permissions_user', '{"username":{"type":"string","minLength":3,"unique":true,"configurable":false,"required":true},"email":{"type":"email","minLength":6,"configurable":false,"required":true},"provider":{"type":"string","configurable":false},"password":{"type":"password","minLength":6,"configurable":false,"private":true},"resetPasswordToken":{"type":"string","configurable":false,"private":true},"confirmed":{"type":"boolean","default":false,"configurable":false},"blocked":{"type":"boolean","default":false,"configurable":false},"role":{"model":"role","via":"users","plugin":"users-permissions","configurable":false}}', 'object', NULL, NULL),
 (6, 'db_model_upload_file_morph', '{"upload_file_id":{"type":"integer"},"related_id":{"type":"integer"},"related_type":{"type":"text"},"field":{"type":"text"}}', 'object', NULL, NULL),
-(7, 'plugin_content-manager_schema', '{"generalSettings":{"search":true,"filters":true,"bulkActions":true,"pageEntries":10},"models":{"plugins":{"upload":{"file":{"label":"File","labelPlural":"Files","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"timestamps":["created_at","updated_at"]},"editDisplay":{"availableFields":{"name":{"label":"Name","type":"string","description":"","name":"name","editable":true,"placeholder":""},"hash":{"label":"Hash","type":"string","description":"","name":"hash","editable":true,"placeholder":""},"sha256":{"label":"Sha256","type":"string","description":"","name":"sha256","editable":true,"placeholder":""},"ext":{"label":"Ext","type":"string","description":"","name":"ext","editable":true,"placeholder":""},"mime":{"label":"Mime","type":"string","description":"","name":"mime","editable":true,"placeholder":""},"size":{"label":"Size","type":"string","description":"","name":"size","editable":true,"placeholder":""},"url":{"label":"Url","type":"string","description":"","name":"url","editable":true,"placeholder":""},"provider":{"label":"Provider","type":"string","description":"","name":"provider","editable":true,"placeholder":""},"public_id":{"label":"Public_id","type":"string","description":"","name":"public_id","editable":true,"placeholder":""}},"displayedField":"id","fields":["name","hash","sha256","ext","mime","size","url","provider","public_id"],"relations":[]},"info":{"name":"file","description":""},"connection":"default","collectionName":"upload_file","attributes":{"name":{"type":"string","configurable":false,"required":true},"hash":{"type":"string","configurable":false,"required":true},"sha256":{"type":"string","configurable":false},"ext":{"type":"string","configurable":false},"mime":{"type":"string","configurable":false,"required":true},"size":{"type":"string","configurable":false,"required":true},"url":{"type":"string","configurable":false,"required":true},"provider":{"type":"string","configurable":false,"required":true},"public_id":{"type":"string","configurable":false},"related":{"collection":"*","filter":"field","configurable":false}},"globalId":"UploadFile","globalName":"UploadFile","primaryKey":"id","associations":[{"alias":"related","type":"collection","related":[],"nature":"manyMorphToMany","autoPopulate":true,"filter":"field"}],"fields":{"name":{"label":"Name","description":"","type":"string","disabled":false,"name":"name","sortable":true,"searchable":true},"hash":{"label":"Hash","description":"","type":"string","disabled":false,"name":"hash","sortable":true,"searchable":true},"sha256":{"label":"Sha256","description":"","type":"string","disabled":false,"name":"sha256","sortable":true,"searchable":true},"ext":{"label":"Ext","description":"","type":"string","disabled":false,"name":"ext","sortable":true,"searchable":true},"mime":{"label":"Mime","description":"","type":"string","disabled":false,"name":"mime","sortable":true,"searchable":true},"size":{"label":"Size","description":"","type":"string","disabled":false,"name":"size","sortable":true,"searchable":true},"url":{"label":"Url","description":"","type":"string","disabled":false,"name":"url","sortable":true,"searchable":true},"provider":{"label":"Provider","description":"","type":"string","disabled":false,"name":"provider","sortable":true,"searchable":true},"public_id":{"label":"Public_id","description":"","type":"string","disabled":false,"name":"public_id","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Name","description":"","type":"string","disabled":false,"name":"name","sortable":true,"searchable":true},{"label":"Hash","description":"","type":"string","disabled":false,"name":"hash","sortable":true,"searchable":true},{"label":"Sha256","description":"","type":"string","disabled":false,"name":"sha256","sortable":true,"searchable":true},{"label":"Ext","description":"","type":"string","disabled":false,"name":"ext","sortable":true,"searchable":true}],"relations":{"related":{"alias":"related","type":"collection","related":[],"nature":"manyMorphToMany","autoPopulate":true,"filter":"field","description":"","label":"Related","displayedAttribute":"id"}}}},"users-permissions":{"permission":{"label":"Permission","labelPlural":"Permissions","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"timestamps":false},"editDisplay":{"availableFields":{"type":{"label":"Type","type":"string","description":"","name":"type","editable":true,"placeholder":""},"controller":{"label":"Controller","type":"string","description":"","name":"controller","editable":true,"placeholder":""},"action":{"label":"Action","type":"string","description":"","name":"action","editable":true,"placeholder":""},"enabled":{"label":"Enabled","type":"boolean","description":"","name":"enabled","editable":true,"placeholder":""},"policy":{"label":"Policy","type":"string","description":"","name":"policy","editable":true,"placeholder":""}},"displayedField":"id","fields":["type","controller","action","enabled","policy"],"relations":["role"]},"info":{"name":"permission","description":""},"connection":"default","collectionName":"users-permissions_permission","attributes":{"type":{"type":"string","required":true,"configurable":false},"controller":{"type":"string","required":true,"configurable":false},"action":{"type":"string","required":true,"configurable":false},"enabled":{"type":"boolean","required":true,"configurable":false},"policy":{"type":"string","configurable":false},"role":{"model":"role","via":"permissions","plugin":"users-permissions","configurable":false}},"globalId":"UsersPermissionsPermission","globalName":"UsersPermissionsPermission","primaryKey":"id","associations":[{"alias":"role","type":"model","model":"role","via":"permissions","nature":"manyToOne","autoPopulate":true,"dominant":true,"plugin":"users-permissions"}],"fields":{"type":{"label":"Type","description":"","type":"string","disabled":false,"name":"type","sortable":true,"searchable":true},"controller":{"label":"Controller","description":"","type":"string","disabled":false,"name":"controller","sortable":true,"searchable":true},"action":{"label":"Action","description":"","type":"string","disabled":false,"name":"action","sortable":true,"searchable":true},"enabled":{"label":"Enabled","description":"","type":"boolean","disabled":false,"name":"enabled","sortable":true,"searchable":true},"policy":{"label":"Policy","description":"","type":"string","disabled":false,"name":"policy","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Type","description":"","type":"string","disabled":false,"name":"type","sortable":true,"searchable":true},{"label":"Controller","description":"","type":"string","disabled":false,"name":"controller","sortable":true,"searchable":true},{"label":"Action","description":"","type":"string","disabled":false,"name":"action","sortable":true,"searchable":true},{"label":"Enabled","description":"","type":"boolean","disabled":false,"name":"enabled","sortable":true,"searchable":true}],"relations":{"role":{"alias":"role","type":"model","model":"role","via":"permissions","nature":"manyToOne","autoPopulate":true,"dominant":true,"plugin":"users-permissions","description":"","label":"Role","displayedAttribute":"name"}}},"role":{"label":"Role","labelPlural":"Roles","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"timestamps":false},"editDisplay":{"availableFields":{"name":{"label":"Name","type":"string","description":"","name":"name","editable":true,"placeholder":""},"description":{"label":"Description","type":"string","description":"","name":"description","editable":true,"placeholder":""},"type":{"label":"Type","type":"string","description":"","name":"type","editable":true,"placeholder":""}},"displayedField":"id","fields":["name","description","type"],"relations":["permissions","users"]},"info":{"name":"role","description":""},"connection":"default","collectionName":"users-permissions_role","attributes":{"name":{"type":"string","minLength":3,"required":true,"configurable":false},"description":{"type":"string","configurable":false},"type":{"type":"string","unique":true,"configurable":false},"permissions":{"collection":"permission","via":"role","plugin":"users-permissions","configurable":false,"isVirtual":true},"users":{"collection":"user","via":"role","plugin":"users-permissions","isVirtual":true}},"globalId":"UsersPermissionsRole","globalName":"UsersPermissionsRole","primaryKey":"id","associations":[{"alias":"permissions","type":"collection","collection":"permission","via":"role","nature":"oneToMany","autoPopulate":true,"dominant":true,"plugin":"users-permissions"},{"alias":"users","type":"collection","collection":"user","via":"role","nature":"oneToMany","autoPopulate":true,"dominant":true,"plugin":"users-permissions"}],"fields":{"name":{"label":"Name","description":"","type":"string","disabled":false,"name":"name","sortable":true,"searchable":true},"description":{"label":"Description","description":"","type":"string","disabled":false,"name":"description","sortable":true,"searchable":true},"type":{"label":"Type","description":"","type":"string","disabled":false,"name":"type","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Name","description":"","type":"string","disabled":false,"name":"name","sortable":true,"searchable":true},{"label":"Description","description":"","type":"string","disabled":false,"name":"description","sortable":true,"searchable":true},{"label":"Type","description":"","type":"string","disabled":false,"name":"type","sortable":true,"searchable":true}],"relations":{"permissions":{"alias":"permissions","type":"collection","collection":"permission","via":"role","nature":"oneToMany","autoPopulate":true,"dominant":true,"plugin":"users-permissions","description":"","label":"Permissions","displayedAttribute":"type"},"users":{"alias":"users","type":"collection","collection":"user","via":"role","nature":"oneToMany","autoPopulate":true,"dominant":true,"plugin":"users-permissions","description":"","label":"Users","displayedAttribute":"username"}}},"user":{"label":"User","labelPlural":"Users","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"timestamps":false},"editDisplay":{"availableFields":{"username":{"label":"Username","type":"string","description":"","name":"username","editable":true,"placeholder":""},"email":{"label":"Email","type":"email","description":"","name":"email","editable":true,"placeholder":""},"provider":{"label":"Provider","type":"string","description":"","name":"provider","editable":true,"placeholder":""},"password":{"label":"Password","type":"password","description":"","name":"password","editable":true,"placeholder":""},"confirmed":{"label":"Confirmed","type":"boolean","description":"","name":"confirmed","editable":true,"placeholder":""},"blocked":{"label":"Blocked","type":"boolean","description":"","name":"blocked","editable":true,"placeholder":""}},"displayedField":"id","fields":["username","email","provider","password","confirmed","blocked"],"relations":["role"]},"info":{"name":"user","description":""},"connection":"default","collectionName":"users-permissions_user","attributes":{"username":{"type":"string","minLength":3,"unique":true,"configurable":false,"required":true},"email":{"type":"email","minLength":6,"configurable":false,"required":true},"provider":{"type":"string","configurable":false},"password":{"type":"password","minLength":6,"configurable":false,"private":true},"confirmed":{"type":"boolean","default":false,"configurable":false},"blocked":{"type":"boolean","default":false,"configurable":false},"role":{"model":"role","via":"users","plugin":"users-permissions","configurable":false}},"globalId":"UsersPermissionsUser","globalName":"UsersPermissionsUser","primaryKey":"id","associations":[{"alias":"role","type":"model","model":"role","via":"users","nature":"manyToOne","autoPopulate":true,"dominant":true,"plugin":"users-permissions"}],"fields":{"username":{"label":"Username","description":"","type":"string","disabled":false,"name":"username","sortable":true,"searchable":true},"email":{"label":"Email","description":"","type":"email","disabled":false,"name":"email","sortable":true,"searchable":true},"provider":{"label":"Provider","description":"","type":"string","disabled":false,"name":"provider","sortable":true,"searchable":true},"password":{"label":"Password","description":"","type":"password","disabled":false,"name":"password","sortable":true,"searchable":true},"confirmed":{"label":"Confirmed","description":"","type":"boolean","disabled":false,"name":"confirmed","sortable":true,"searchable":true},"blocked":{"label":"Blocked","description":"","type":"boolean","disabled":false,"name":"blocked","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Username","description":"","type":"string","disabled":false,"name":"username","sortable":true,"searchable":true},{"label":"Email","description":"","type":"email","disabled":false,"name":"email","sortable":true,"searchable":true},{"label":"Provider","description":"","type":"string","disabled":false,"name":"provider","sortable":true,"searchable":true},{"label":"Password","description":"","type":"password","disabled":false,"name":"password","sortable":true,"searchable":true}],"relations":{"role":{"alias":"role","type":"model","model":"role","via":"users","nature":"manyToOne","autoPopulate":true,"dominant":true,"plugin":"users-permissions","description":"","label":"Role","displayedAttribute":"name"}}}}},"restaurant":{"label":"Restaurant","labelPlural":"Restaurants","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"increments":true,"timestamps":["created_at","updated_at"],"comment":""},"editDisplay":{"availableFields":{"Name":{"label":"Name","type":"string","description":"","name":"Name","editable":true,"placeholder":""},"description":{"label":"Description","type":"text","description":"","name":"description","editable":true,"placeholder":""}},"displayedField":"id","fields":["Name","description"],"relations":[]},"info":{"name":"restaurant","description":""},"connection":"default","collectionName":"restaurants","attributes":{"Name":{"default":"","type":"string"},"description":{"default":"","type":"text"}},"globalId":"Restaurant","globalName":"Restaurant","primaryKey":"id","associations":[],"fields":{"Name":{"label":"Name","description":"","type":"string","disabled":false,"name":"Name","sortable":true,"searchable":true},"description":{"label":"Description","description":"","type":"text","disabled":false,"name":"description","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Name","description":"","type":"string","disabled":false,"name":"Name","sortable":true,"searchable":true},{"label":"Description","description":"","type":"text","disabled":false,"name":"description","sortable":true,"searchable":true}],"relations":{}}},"layout":{"user":{"actions":{"create":"User.create","update":"User.update","destroy":"User.destroy","deleteall":"User.destroyAll"},"attributes":{"username":{"className":"col-md-6"},"email":{"className":"col-md-6"},"resetPasswordToken":{"className":"d-none"},"role":{"className":"d-none"}}},"restaurant":{"attributes":{"Name":{"appearance":""},"description":{"appearance":"WYSIWYG"}}}}}', 'object', '', ''),
+(7, 'plugin_content-manager_schema', '{"generalSettings":{"search":true,"filters":true,"bulkActions":true,"pageEntries":10},"models":{"plugins":{"upload":{"file":{"label":"File","labelPlural":"Files","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"timestamps":["created_at","updated_at"]},"editDisplay":{"availableFields":{"name":{"label":"Name","type":"string","description":"","name":"name","editable":true,"placeholder":""},"hash":{"label":"Hash","type":"string","description":"","name":"hash","editable":true,"placeholder":""},"sha256":{"label":"Sha256","type":"string","description":"","name":"sha256","editable":true,"placeholder":""},"ext":{"label":"Ext","type":"string","description":"","name":"ext","editable":true,"placeholder":""},"mime":{"label":"Mime","type":"string","description":"","name":"mime","editable":true,"placeholder":""},"size":{"label":"Size","type":"string","description":"","name":"size","editable":true,"placeholder":""},"url":{"label":"Url","type":"string","description":"","name":"url","editable":true,"placeholder":""},"provider":{"label":"Provider","type":"string","description":"","name":"provider","editable":true,"placeholder":""},"public_id":{"label":"Public_id","type":"string","description":"","name":"public_id","editable":true,"placeholder":""}},"displayedField":"id","fields":["name","hash","sha256","ext","mime","size","url","provider","public_id"],"relations":[]},"info":{"name":"file","description":""},"connection":"default","collectionName":"upload_file","attributes":{"name":{"type":"string","configurable":false,"required":true},"hash":{"type":"string","configurable":false,"required":true},"sha256":{"type":"string","configurable":false},"ext":{"type":"string","configurable":false},"mime":{"type":"string","configurable":false,"required":true},"size":{"type":"string","configurable":false,"required":true},"url":{"type":"string","configurable":false,"required":true},"provider":{"type":"string","configurable":false,"required":true},"public_id":{"type":"string","configurable":false},"related":{"collection":"*","filter":"field","configurable":false}},"globalId":"UploadFile","globalName":"UploadFile","primaryKey":"id","associations":[{"alias":"related","type":"collection","related":[],"nature":"manyMorphToMany","autoPopulate":true,"filter":"field"}],"fields":{"name":{"label":"Name","description":"","type":"string","disabled":false,"name":"name","sortable":true,"searchable":true},"hash":{"label":"Hash","description":"","type":"string","disabled":false,"name":"hash","sortable":true,"searchable":true},"sha256":{"label":"Sha256","description":"","type":"string","disabled":false,"name":"sha256","sortable":true,"searchable":true},"ext":{"label":"Ext","description":"","type":"string","disabled":false,"name":"ext","sortable":true,"searchable":true},"mime":{"label":"Mime","description":"","type":"string","disabled":false,"name":"mime","sortable":true,"searchable":true},"size":{"label":"Size","description":"","type":"string","disabled":false,"name":"size","sortable":true,"searchable":true},"url":{"label":"Url","description":"","type":"string","disabled":false,"name":"url","sortable":true,"searchable":true},"provider":{"label":"Provider","description":"","type":"string","disabled":false,"name":"provider","sortable":true,"searchable":true},"public_id":{"label":"Public_id","description":"","type":"string","disabled":false,"name":"public_id","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Name","description":"","type":"string","disabled":false,"name":"name","sortable":true,"searchable":true},{"label":"Hash","description":"","type":"string","disabled":false,"name":"hash","sortable":true,"searchable":true},{"label":"Sha256","description":"","type":"string","disabled":false,"name":"sha256","sortable":true,"searchable":true},{"label":"Ext","description":"","type":"string","disabled":false,"name":"ext","sortable":true,"searchable":true}],"relations":{"related":{"alias":"related","type":"collection","related":[],"nature":"manyMorphToMany","autoPopulate":true,"filter":"field","description":"","label":"Related","displayedAttribute":"id"}}}},"users-permissions":{"permission":{"label":"Permission","labelPlural":"Permissions","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"timestamps":false},"editDisplay":{"availableFields":{"type":{"label":"Type","type":"string","description":"","name":"type","editable":true,"placeholder":""},"controller":{"label":"Controller","type":"string","description":"","name":"controller","editable":true,"placeholder":""},"action":{"label":"Action","type":"string","description":"","name":"action","editable":true,"placeholder":""},"enabled":{"label":"Enabled","type":"boolean","description":"","name":"enabled","editable":true,"placeholder":""},"policy":{"label":"Policy","type":"string","description":"","name":"policy","editable":true,"placeholder":""}},"displayedField":"id","fields":["type","controller","action","enabled","policy"],"relations":["role"]},"info":{"name":"permission","description":""},"connection":"default","collectionName":"users-permissions_permission","attributes":{"type":{"type":"string","required":true,"configurable":false},"controller":{"type":"string","required":true,"configurable":false},"action":{"type":"string","required":true,"configurable":false},"enabled":{"type":"boolean","required":true,"configurable":false},"policy":{"type":"string","configurable":false},"role":{"model":"role","via":"permissions","plugin":"users-permissions","configurable":false}},"globalId":"UsersPermissionsPermission","globalName":"UsersPermissionsPermission","primaryKey":"id","associations":[{"alias":"role","type":"model","model":"role","via":"permissions","nature":"manyToOne","autoPopulate":true,"dominant":true,"plugin":"users-permissions"}],"fields":{"type":{"label":"Type","description":"","type":"string","disabled":false,"name":"type","sortable":true,"searchable":true},"controller":{"label":"Controller","description":"","type":"string","disabled":false,"name":"controller","sortable":true,"searchable":true},"action":{"label":"Action","description":"","type":"string","disabled":false,"name":"action","sortable":true,"searchable":true},"enabled":{"label":"Enabled","description":"","type":"boolean","disabled":false,"name":"enabled","sortable":true,"searchable":true},"policy":{"label":"Policy","description":"","type":"string","disabled":false,"name":"policy","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Type","description":"","type":"string","disabled":false,"name":"type","sortable":true,"searchable":true},{"label":"Controller","description":"","type":"string","disabled":false,"name":"controller","sortable":true,"searchable":true},{"label":"Action","description":"","type":"string","disabled":false,"name":"action","sortable":true,"searchable":true},{"label":"Enabled","description":"","type":"boolean","disabled":false,"name":"enabled","sortable":true,"searchable":true}],"relations":{"role":{"alias":"role","type":"model","model":"role","via":"permissions","nature":"manyToOne","autoPopulate":true,"dominant":true,"plugin":"users-permissions","description":"","label":"Role","displayedAttribute":"name"}}},"role":{"label":"Role","labelPlural":"Roles","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"timestamps":false},"editDisplay":{"availableFields":{"name":{"label":"Name","type":"string","description":"","name":"name","editable":true,"placeholder":""},"description":{"label":"Description","type":"string","description":"","name":"description","editable":true,"placeholder":""},"type":{"label":"Type","type":"string","description":"","name":"type","editable":true,"placeholder":""}},"displayedField":"id","fields":["name","description","type"],"relations":["permissions","users"]},"info":{"name":"role","description":""},"connection":"default","collectionName":"users-permissions_role","attributes":{"name":{"type":"string","minLength":3,"required":true,"configurable":false},"description":{"type":"string","configurable":false},"type":{"type":"string","unique":true,"configurable":false},"permissions":{"collection":"permission","via":"role","plugin":"users-permissions","configurable":false,"isVirtual":true},"users":{"collection":"user","via":"role","plugin":"users-permissions","isVirtual":true}},"globalId":"UsersPermissionsRole","globalName":"UsersPermissionsRole","primaryKey":"id","associations":[{"alias":"permissions","type":"collection","collection":"permission","via":"role","nature":"oneToMany","autoPopulate":true,"dominant":true,"plugin":"users-permissions"},{"alias":"users","type":"collection","collection":"user","via":"role","nature":"oneToMany","autoPopulate":true,"dominant":true,"plugin":"users-permissions"}],"fields":{"name":{"label":"Name","description":"","type":"string","disabled":false,"name":"name","sortable":true,"searchable":true},"description":{"label":"Description","description":"","type":"string","disabled":false,"name":"description","sortable":true,"searchable":true},"type":{"label":"Type","description":"","type":"string","disabled":false,"name":"type","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Name","description":"","type":"string","disabled":false,"name":"name","sortable":true,"searchable":true},{"label":"Description","description":"","type":"string","disabled":false,"name":"description","sortable":true,"searchable":true},{"label":"Type","description":"","type":"string","disabled":false,"name":"type","sortable":true,"searchable":true}],"relations":{"permissions":{"alias":"permissions","type":"collection","collection":"permission","via":"role","nature":"oneToMany","autoPopulate":true,"dominant":true,"plugin":"users-permissions","description":"","label":"Permissions","displayedAttribute":"type"},"users":{"alias":"users","type":"collection","collection":"user","via":"role","nature":"oneToMany","autoPopulate":true,"dominant":true,"plugin":"users-permissions","description":"","label":"Users","displayedAttribute":"username"}}},"user":{"label":"User","labelPlural":"Users","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"timestamps":false},"editDisplay":{"availableFields":{"username":{"label":"Username","type":"string","description":"","name":"username","editable":true,"placeholder":""},"email":{"label":"Email","type":"email","description":"","name":"email","editable":true,"placeholder":""},"provider":{"label":"Provider","type":"string","description":"","name":"provider","editable":true,"placeholder":""},"password":{"label":"Password","type":"password","description":"","name":"password","editable":true,"placeholder":""},"confirmed":{"label":"Confirmed","type":"boolean","description":"","name":"confirmed","editable":true,"placeholder":""},"blocked":{"label":"Blocked","type":"boolean","description":"","name":"blocked","editable":true,"placeholder":""}},"displayedField":"id","fields":["username","email","provider","password","confirmed","blocked"],"relations":["role"]},"info":{"name":"user","description":""},"connection":"default","collectionName":"users-permissions_user","attributes":{"username":{"type":"string","minLength":3,"unique":true,"configurable":false,"required":true},"email":{"type":"email","minLength":6,"configurable":false,"required":true},"provider":{"type":"string","configurable":false},"password":{"type":"password","minLength":6,"configurable":false,"private":true},"confirmed":{"type":"boolean","default":false,"configurable":false},"blocked":{"type":"boolean","default":false,"configurable":false},"role":{"model":"role","via":"users","plugin":"users-permissions","configurable":false}},"globalId":"UsersPermissionsUser","globalName":"UsersPermissionsUser","primaryKey":"id","associations":[{"alias":"role","type":"model","model":"role","via":"users","nature":"manyToOne","autoPopulate":true,"dominant":true,"plugin":"users-permissions"}],"fields":{"username":{"label":"Username","description":"","type":"string","disabled":false,"name":"username","sortable":true,"searchable":true},"email":{"label":"Email","description":"","type":"email","disabled":false,"name":"email","sortable":true,"searchable":true},"provider":{"label":"Provider","description":"","type":"string","disabled":false,"name":"provider","sortable":true,"searchable":true},"password":{"label":"Password","description":"","type":"password","disabled":false,"name":"password","sortable":true,"searchable":true},"confirmed":{"label":"Confirmed","description":"","type":"boolean","disabled":false,"name":"confirmed","sortable":true,"searchable":true},"blocked":{"label":"Blocked","description":"","type":"boolean","disabled":false,"name":"blocked","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Username","description":"","type":"string","disabled":false,"name":"username","sortable":true,"searchable":true},{"label":"Email","description":"","type":"email","disabled":false,"name":"email","sortable":true,"searchable":true},{"label":"Provider","description":"","type":"string","disabled":false,"name":"provider","sortable":true,"searchable":true},{"label":"Password","description":"","type":"password","disabled":false,"name":"password","sortable":true,"searchable":true}],"relations":{"role":{"alias":"role","type":"model","model":"role","via":"users","nature":"manyToOne","autoPopulate":true,"dominant":true,"plugin":"users-permissions","description":"","label":"Role","displayedAttribute":"name"}}}}},"questions":{"label":"Questions","labelPlural":"Questions","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"increments":true,"timestamps":["created_at","updated_at"],"comment":""},"editDisplay":{"availableFields":{"questions":{"label":"Questions","type":"string","description":"","name":"questions","editable":true,"placeholder":""}},"displayedField":"id","fields":["questions"],"relations":["reponse"]},"info":{"name":"questions","description":""},"connection":"default","collectionName":"questions","attributes":{"questions":{"default":"","type":"string"},"reponse":{"collection":"reponses","via":"question","dominant":true,"attribute":"reponse","column":"id","isVirtual":true}},"globalId":"Questions","globalName":"Questions","primaryKey":"id","associations":[{"alias":"reponse","type":"collection","collection":"reponses","via":"question","nature":"manyToMany","autoPopulate":true,"dominant":true}],"fields":{"questions":{"label":"Questions","description":"","type":"string","disabled":false,"name":"questions","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Questions","description":"","type":"string","disabled":false,"name":"questions","sortable":true,"searchable":true}],"relations":{"reponse":{"alias":"reponse","type":"collection","collection":"reponses","via":"question","nature":"manyToMany","autoPopulate":true,"dominant":true,"description":"","label":"Reponse","displayedAttribute":"id"}}},"reponses":{"label":"Reponses","labelPlural":"Reponses","orm":"bookshelf","search":true,"filters":true,"bulkActions":true,"pageEntries":10,"defaultSort":"id","sort":"ASC","options":{"increments":true,"timestamps":["created_at","updated_at"],"comment":""},"editDisplay":{"availableFields":{"reponse":{"label":"Reponse","type":"text","description":"","name":"reponse","editable":true,"placeholder":""}},"displayedField":"id","fields":["reponse"],"relations":["question"]},"info":{"name":"reponses","description":""},"connection":"default","collectionName":"reponses","attributes":{"reponse":{"default":"","type":"text"},"question":{"collection":"questions","via":"reponse","attribute":"question","column":"id","isVirtual":true}},"globalId":"Reponses","globalName":"Reponses","primaryKey":"id","associations":[{"alias":"question","type":"collection","collection":"questions","via":"reponse","nature":"manyToMany","autoPopulate":true,"dominant":false}],"fields":{"reponse":{"label":"Reponse","description":"","type":"text","disabled":false,"name":"reponse","sortable":true,"searchable":true}},"listDisplay":[{"name":"id","label":"Id","type":"string","sortable":true,"searchable":true},{"label":"Reponse","description":"","type":"text","disabled":false,"name":"reponse","sortable":true,"searchable":true}],"relations":{"question":{"alias":"question","type":"collection","collection":"questions","via":"reponse","nature":"manyToMany","autoPopulate":true,"dominant":false,"description":"","label":"Question","displayedAttribute":"questions"}}}},"layout":{"user":{"actions":{"create":"User.create","update":"User.update","destroy":"User.destroy","deleteall":"User.destroyAll"},"attributes":{"username":{"className":"col-md-6"},"email":{"className":"col-md-6"},"resetPasswordToken":{"className":"d-none"},"role":{"className":"d-none"}}},"questions":{"attributes":{"questions":{"appearance":""}}},"reponses":{"attributes":{"reponse":{"appearance":""}}}}}', 'object', '', ''),
+(17, 'db_model_questions', '{"questions":{"default":"","type":"string"},"reponse":{"collection":"reponses","via":"question","dominant":true,"attribute":"reponse","column":"id","isVirtual":true},"created_at":{"type":"timestamp"},"updated_at":{"type":"timestampUpdate"}}', 'object', NULL, NULL),
+(18, 'db_model_reponses', '{"reponse":{"default":"","type":"text"},"question":{"collection":"questions","via":"reponse","attribute":"question","column":"id","isVirtual":true},"created_at":{"type":"timestamp"},"updated_at":{"type":"timestampUpdate"}}', 'object', NULL, NULL),
 (8, 'core_application', '{"name":"Default Application","description":"This API is going to be awesome!"}', 'object', '', ''),
 (9, 'plugin_users-permissions_grant', '{"email":{"enabled":true,"icon":"envelope"},"discord":{"enabled":false,"icon":"comments","key":"","secret":"","callback":"/auth/discord/callback","scope":["identify","email"]},"facebook":{"enabled":false,"icon":"facebook-official","key":"","secret":"","callback":"/auth/facebook/callback","scope":["email"]},"google":{"enabled":false,"icon":"google","key":"","secret":"","callback":"/auth/google/callback","scope":["email"]},"github":{"enabled":false,"icon":"github","key":"","secret":"","redirect_uri":"/auth/github/callback","scope":["user","user:email"]},"microsoft":{"enabled":false,"icon":"windows","key":"","secret":"","callback":"/auth/microsoft/callback","scope":["user.read"]},"twitter":{"enabled":false,"icon":"twitter","key":"","secret":"","callback":"/auth/twitter/callback"}}', 'object', '', ''),
 (10, 'plugin_email_provider', '{"provider":"sendmail","name":"Sendmail","auth":{"sendmail_default_from":{"label":"Sendmail Default From","type":"text"},"sendmail_default_replyto":{"label":"Sendmail Default Reply-To","type":"text"}}}', 'object', 'development', ''),
 (11, 'plugin_upload_provider', '{"provider":"local","name":"Local server","enabled":true,"sizeLimit":1000000}', 'object', 'development', ''),
 (12, 'plugin_users-permissions_email', '{"reset_password":{"display":"Email.template.reset_password","icon":"refresh","options":{"from":{"name":"Administration Panel","email":"no-reply@strapi.io"},"response_email":"","object":"­Reset password","message":"<p>We heard that you lost your password. Sorry about that!</p>\\n\\n<p>But don’t worry! You can use the following link to reset your password:</p>\\n\\n<p><%= URL %>?code=<%= TOKEN %></p>\\n\\n<p>Thanks.</p>"}},"email_confirmation":{"display":"Email.template.email_confirmation","icon":"check-square-o","options":{"from":{"name":"Administration Panel","email":"no-reply@strapi.io"},"response_email":"","object":"Account confirmation","message":"<p>Thank you for registering!</p>\\n\\n<p>You have to confirm your email address. Please click on the link below.</p>\\n\\n<p><%= URL %>?confirmation=<%= CODE %></p>\\n\\n<p>Thanks.</p>"}}}', 'object', '', ''),
 (13, 'plugin_users-permissions_advanced', '{"unique_email":true,"allow_register":true,"email_confirmation":false,"email_confirmation_redirection":"http://localhost:1337/admin","default_role":"authenticated"}', 'object', '', ''),
-(14, 'db_model_restaurants', '{"Name":{"default":"","type":"string"},"description":{"default":"","type":"text"},"created_at":{"type":"timestamp"},"updated_at":{"type":"timestampUpdate"}}', 'object', NULL, NULL);
+(14, 'db_model_restaurants', '{"Name":{"default":"","type":"string"},"description":{"default":"","type":"text"},"categorie":{"default":"","type":"string"},"created_at":{"type":"timestamp"},"updated_at":{"type":"timestampUpdate"}}', 'object', NULL, NULL),
+(15, 'db_model_categories', '{"type":{"default":"","type":"string"},"created_at":{"type":"timestamp"},"updated_at":{"type":"timestampUpdate"}}', 'object', NULL, NULL),
+(16, 'db_model_categories', '{"type":{"default":"","type":"string"},"created_at":{"type":"timestamp"},"updated_at":{"type":"timestampUpdate"}}', 'object', NULL, NULL),
+(19, 'db_model_questions_reponses__reponses_questions', '{"reponse_id":{"type":"integer"},"question_id":{"type":"integer"}}', 'object', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `restaurants`
+-- Structure de la table `questions`
 --
 
-CREATE TABLE IF NOT EXISTS `restaurants` (
-`id` int(11) NOT NULL,
-  `Name` varchar(255) DEFAULT NULL,
-  `description` longtext,
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL,
+  `questions` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `reponse` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `restaurants`
+-- Contenu de la table `questions`
 --
 
-INSERT INTO `restaurants` (`id`, `Name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Strapi Restaurant', 'Strapi restaurant is a cosy restaurant delivering one of the very fastest and nicest dining experiences in the world, combining nods to tradition with fierce modernity, warmth with daring.', '2019-03-28 14:02:01', '2019-03-28 14:02:01');
+INSERT INTO `questions` (`id`, `questions`, `created_at`, `updated_at`, `reponse`) VALUES
+(1, 'combien fait 2+4?', '2019-03-29 12:43:33', '2019-03-29 13:16:56', 3),
+(2, 'comment on dit salut en espagnol?', '2019-03-29 13:20:31', '2019-03-29 15:18:20', 6),
+(3, 'combien fait 2+2?', '2019-03-29 14:06:06', '2019-03-29 14:24:19', 9);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `questions_reponses__reponses_questions`
+--
+
+CREATE TABLE `questions_reponses__reponses_questions` (
+  `id` int(11) NOT NULL,
+  `reponse_id` int(11) DEFAULT NULL,
+  `question_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reponses`
+--
+
+CREATE TABLE `reponses` (
+  `id` int(11) NOT NULL,
+  `reponse` longtext,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `question` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `reponses`
+--
+
+INSERT INTO `reponses` (`id`, `reponse`, `created_at`, `updated_at`, `question`) VALUES
+(1, '24', '2019-03-29 12:43:57', '2019-03-29 13:16:53', 1),
+(2, '2+4', '2019-03-29 12:44:05', '2019-03-29 13:16:50', 1),
+(3, '6', '2019-03-29 12:44:21', '2019-03-29 13:16:56', 1),
+(4, 'hello', '2019-03-29 13:20:42', '2019-03-29 13:20:42', 2),
+(5, 'halo', '2019-03-29 13:20:56', '2019-03-29 13:21:12', 2),
+(6, 'hola', '2019-03-29 13:21:06', '2019-03-29 14:05:33', 2),
+(7, '22', '2019-03-29 14:06:14', '2019-03-29 14:06:15', 3),
+(8, '2', '2019-03-29 14:06:25', '2019-03-29 14:06:30', 3),
+(9, '4', '2019-03-29 14:06:34', '2019-03-29 14:24:19', 3);
 
 -- --------------------------------------------------------
 
@@ -82,8 +130,8 @@ INSERT INTO `restaurants` (`id`, `Name`, `description`, `created_at`, `updated_a
 -- Structure de la table `upload_file`
 --
 
-CREATE TABLE IF NOT EXISTS `upload_file` (
-`id` int(11) NOT NULL,
+CREATE TABLE `upload_file` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `hash` varchar(255) NOT NULL,
   `sha256` varchar(255) DEFAULT NULL,
@@ -95,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `upload_file` (
   `public_id` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -103,13 +151,13 @@ CREATE TABLE IF NOT EXISTS `upload_file` (
 -- Structure de la table `upload_file_morph`
 --
 
-CREATE TABLE IF NOT EXISTS `upload_file_morph` (
-`id` int(11) NOT NULL,
+CREATE TABLE `upload_file_morph` (
+  `id` int(11) NOT NULL,
   `upload_file_id` int(11) DEFAULT NULL,
   `related_id` int(11) DEFAULT NULL,
   `related_type` longtext,
   `field` longtext
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -117,15 +165,15 @@ CREATE TABLE IF NOT EXISTS `upload_file_morph` (
 -- Structure de la table `users-permissions_permission`
 --
 
-CREATE TABLE IF NOT EXISTS `users-permissions_permission` (
-`id` int(11) NOT NULL,
+CREATE TABLE `users-permissions_permission` (
+  `id` int(11) NOT NULL,
   `type` varchar(255) NOT NULL,
   `controller` varchar(255) NOT NULL,
   `action` varchar(255) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   `policy` varchar(255) DEFAULT NULL,
   `role` int(11) DEFAULT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=244 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `users-permissions_permission`
@@ -357,24 +405,42 @@ INSERT INTO `users-permissions_permission` (`id`, `type`, `controller`, `action`
 (223, 'users-permissions', 'userspermissions', 'updateadvancedsettings', 0, '', 3),
 (224, 'users-permissions', 'userspermissions', 'getproviders', 0, '', 3),
 (225, 'users-permissions', 'userspermissions', 'updateproviders', 0, '', 3),
-(226, 'application', 'restaurant', 'find', 1, '', 1),
-(227, 'application', 'restaurant', 'findone', 1, '', 1),
-(228, 'application', 'restaurant', 'count', 1, '', 1),
-(229, 'application', 'restaurant', 'create', 1, '', 1),
-(230, 'application', 'restaurant', 'update', 1, '', 1),
-(231, 'application', 'restaurant', 'destroy', 1, '', 1),
-(232, 'application', 'restaurant', 'find', 1, '', 2),
-(233, 'application', 'restaurant', 'findone', 0, '', 2),
-(234, 'application', 'restaurant', 'count', 0, '', 2),
-(235, 'application', 'restaurant', 'create', 0, '', 2),
-(236, 'application', 'restaurant', 'update', 0, '', 2),
-(237, 'application', 'restaurant', 'destroy', 0, '', 2),
-(238, 'application', 'restaurant', 'find', 0, '', 3),
-(239, 'application', 'restaurant', 'findone', 0, '', 3),
-(240, 'application', 'restaurant', 'count', 0, '', 3),
-(241, 'application', 'restaurant', 'create', 0, '', 3),
-(242, 'application', 'restaurant', 'update', 0, '', 3),
-(243, 'application', 'restaurant', 'destroy', 0, '', 3);
+(314, 'application', 'reponses', 'update', 0, '', 3),
+(313, 'application', 'reponses', 'create', 0, '', 3),
+(312, 'application', 'reponses', 'count', 0, '', 3),
+(309, 'application', 'reponses', 'destroy', 1, '', 2),
+(306, 'application', 'reponses', 'count', 1, '', 2),
+(302, 'application', 'reponses', 'update', 1, '', 1),
+(303, 'application', 'reponses', 'destroy', 1, '', 1),
+(311, 'application', 'reponses', 'findone', 0, '', 3),
+(308, 'application', 'reponses', 'update', 1, '', 2),
+(305, 'application', 'reponses', 'findone', 1, '', 2),
+(300, 'application', 'reponses', 'count', 1, '', 1),
+(301, 'application', 'reponses', 'create', 1, '', 1),
+(310, 'application', 'reponses', 'find', 0, '', 3),
+(307, 'application', 'reponses', 'create', 1, '', 2),
+(304, 'application', 'reponses', 'find', 1, '', 2),
+(299, 'application', 'reponses', 'findone', 1, '', 1),
+(298, 'application', 'reponses', 'find', 1, '', 1),
+(295, 'application', 'questions', 'create', 0, '', 3),
+(292, 'application', 'questions', 'find', 0, '', 3),
+(289, 'application', 'questions', 'create', 1, '', 2),
+(286, 'application', 'questions', 'find', 1, '', 2),
+(283, 'application', 'questions', 'create', 1, '', 1),
+(284, 'application', 'questions', 'update', 1, '', 1),
+(297, 'application', 'questions', 'destroy', 0, '', 3),
+(294, 'application', 'questions', 'count', 0, '', 3),
+(291, 'application', 'questions', 'destroy', 1, '', 2),
+(288, 'application', 'questions', 'count', 1, '', 2),
+(282, 'application', 'questions', 'count', 1, '', 1),
+(296, 'application', 'questions', 'update', 0, '', 3),
+(293, 'application', 'questions', 'findone', 0, '', 3),
+(290, 'application', 'questions', 'update', 1, '', 2),
+(287, 'application', 'questions', 'findone', 1, '', 2),
+(285, 'application', 'questions', 'destroy', 1, '', 1),
+(280, 'application', 'questions', 'find', 1, '', 1),
+(281, 'application', 'questions', 'findone', 1, '', 1),
+(315, 'application', 'reponses', 'destroy', 0, '', 3);
 
 -- --------------------------------------------------------
 
@@ -382,12 +448,12 @@ INSERT INTO `users-permissions_permission` (`id`, `type`, `controller`, `action`
 -- Structure de la table `users-permissions_role`
 --
 
-CREATE TABLE IF NOT EXISTS `users-permissions_role` (
-`id` int(11) NOT NULL,
+CREATE TABLE `users-permissions_role` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `users-permissions_role`
@@ -404,8 +470,8 @@ INSERT INTO `users-permissions_role` (`id`, `name`, `description`, `type`) VALUE
 -- Structure de la table `users-permissions_user`
 --
 
-CREATE TABLE IF NOT EXISTS `users-permissions_user` (
-`id` int(11) NOT NULL,
+CREATE TABLE `users-permissions_user` (
+  `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `provider` varchar(255) DEFAULT NULL,
@@ -414,7 +480,7 @@ CREATE TABLE IF NOT EXISTS `users-permissions_user` (
   `confirmed` tinyint(1) DEFAULT NULL,
   `blocked` tinyint(1) DEFAULT NULL,
   `role` int(11) DEFAULT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `users-permissions_user`
@@ -432,43 +498,63 @@ INSERT INTO `users-permissions_user` (`id`, `username`, `email`, `provider`, `pa
 -- Index pour la table `core_store`
 --
 ALTER TABLE `core_store`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `SEARCH_CORE_STORE` (`key`,`value`,`type`,`environment`,`tag`);
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `core_store` ADD FULLTEXT KEY `SEARCH_CORE_STORE` (`key`,`value`,`type`,`environment`,`tag`);
 
 --
--- Index pour la table `restaurants`
+-- Index pour la table `questions`
 --
-ALTER TABLE `restaurants`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `SEARCH_RESTAURANTS` (`Name`,`description`);
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `questions` ADD FULLTEXT KEY `SEARCH_QUESTIONS` (`questions`);
+
+--
+-- Index pour la table `questions_reponses__reponses_questions`
+--
+ALTER TABLE `questions_reponses__reponses_questions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `reponses`
+--
+ALTER TABLE `reponses`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `reponses` ADD FULLTEXT KEY `SEARCH_REPONSES` (`reponse`);
 
 --
 -- Index pour la table `upload_file`
 --
 ALTER TABLE `upload_file`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `SEARCH_UPLOAD_FILE` (`name`,`hash`,`sha256`,`ext`,`mime`,`size`,`url`,`provider`,`public_id`);
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `upload_file` ADD FULLTEXT KEY `SEARCH_UPLOAD_FILE` (`name`,`hash`,`sha256`,`ext`,`mime`,`size`,`url`,`provider`,`public_id`);
 
 --
 -- Index pour la table `upload_file_morph`
 --
 ALTER TABLE `upload_file_morph`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `SEARCH_UPLOAD_FILE_MORPH` (`related_type`,`field`);
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `upload_file_morph` ADD FULLTEXT KEY `SEARCH_UPLOAD_FILE_MORPH` (`related_type`,`field`);
 
 --
 -- Index pour la table `users-permissions_permission`
 --
 ALTER TABLE `users-permissions_permission`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `SEARCH_USERS_PERMISSIONS_PERMISSION` (`type`,`controller`,`action`,`policy`);
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `users-permissions_permission` ADD FULLTEXT KEY `SEARCH_USERS_PERMISSIONS_PERMISSION` (`type`,`controller`,`action`,`policy`);
 
 --
 -- Index pour la table `users-permissions_role`
 --
 ALTER TABLE `users-permissions_role`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `SEARCH_USERS_PERMISSIONS_ROLE` (`name`,`description`,`type`);
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `users-permissions_role` ADD FULLTEXT KEY `SEARCH_USERS_PERMISSIONS_ROLE` (`name`,`description`,`type`);
 
 --
 -- Index pour la table `users-permissions_user`
 --
 ALTER TABLE `users-permissions_user`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `SEARCH_USERS_PERMISSIONS_USER` (`username`,`provider`,`resetPasswordToken`);
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `users-permissions_user` ADD FULLTEXT KEY `SEARCH_USERS_PERMISSIONS_USER` (`username`,`provider`,`resetPasswordToken`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -478,37 +564,47 @@ ALTER TABLE `users-permissions_user`
 -- AUTO_INCREMENT pour la table `core_store`
 --
 ALTER TABLE `core_store`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
--- AUTO_INCREMENT pour la table `restaurants`
+-- AUTO_INCREMENT pour la table `questions`
 --
-ALTER TABLE `restaurants`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `questions_reponses__reponses_questions`
+--
+ALTER TABLE `questions_reponses__reponses_questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `reponses`
+--
+ALTER TABLE `reponses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `upload_file`
 --
 ALTER TABLE `upload_file`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `upload_file_morph`
 --
 ALTER TABLE `upload_file_morph`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `users-permissions_permission`
 --
 ALTER TABLE `users-permissions_permission`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=244;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=316;
 --
 -- AUTO_INCREMENT pour la table `users-permissions_role`
 --
 ALTER TABLE `users-permissions_role`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `users-permissions_user`
 --
 ALTER TABLE `users-permissions_user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
