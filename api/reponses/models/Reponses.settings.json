@@ -1,0 +1,23 @@
+{
+  "connection": "default",
+  "collectionName": "reponses",
+  "info": {
+    "name": "reponses",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "reponse": {
+      "default": "",
+      "type": "text"
+    },
+    "question": {
+      "collection": "questions",
+      "via": "reponse"
+    }
+  }
+}

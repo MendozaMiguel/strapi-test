@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "restaurants",
+  "collectionName": "questions",
   "info": {
-    "name": "restaurant",
+    "name": "questions",
     "description": ""
   },
   "options": {
@@ -11,13 +11,14 @@
     "comment": ""
   },
   "attributes": {
-    "Name": {
+    "questions": {
       "default": "",
       "type": "string"
     },
-    "description": {
-      "default": "",
-      "type": "text"
+    "reponse": {
+      "collection": "reponses",
+      "via": "question",
+      "dominant": true
     }
   }
 }
